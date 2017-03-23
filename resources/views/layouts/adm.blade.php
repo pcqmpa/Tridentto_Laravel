@@ -91,7 +91,7 @@
                     <a href="{{url('/categorias')}}">Categorias</a>
                 </li>
                 <li>
-                    <a href="{{url('/prodcutos')}}">Productos</a>
+                    <a href="{{url('/productos')}}">Productos</a>
                 </li>
                 <li>
                     <a href="#">Ordenes</a>

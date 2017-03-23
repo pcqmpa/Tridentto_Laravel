@@ -24,7 +24,8 @@
                     <td>{{$item->referencia}}</td>
                     <td>{{$item->titulo}}</td>
                     <td>{{$item->descripcion}}</td>
-                    <td>{{$item->Categoria}}</td>
+                    <td>{{$item->categoria->descripcion}}</td>
+                    <td>{{$item->precio}}</td>
                     <td>
                         @if($item->estado == 1)
                             Activo
@@ -32,7 +33,9 @@
                             Inactivo
                         @endif
                     </td>
-                    <td>Accion</td>
+                    <td>
+                        <a href="{{url('/productos/'.$item->id.'/edit')}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+                    </td>
                 </tr>
 
             @endforeach

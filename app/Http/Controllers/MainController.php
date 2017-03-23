@@ -9,11 +9,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Producto;
+
 class MainController {
 
         public function home(){
 
-            return view('main.home');
+            $productos=Producto::all();
+            return view('main.home',['productos'=> $productos]);
 
         }
 }

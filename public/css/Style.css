@@ -54,3 +54,36 @@ div#maincontent{
 .navbar-custom .navbar-nav li a {
     color: #ff8f00;
 }
+
+.precio-producto strong{
+
+    color:#0000cc;
+}
+
+.detalle-producto{
+
+    font-size: 2rem;
+    list-style-type: none;
+    padding: 0;
+
+}
+.detalle-producto-titulo{
+
+    font-weight: bold;
+    color: #999;
+}
+.detalle-producto-descricion{
+    font-size: 6rem;
+    color: #FF5722;
+}
+.detalle-producto-descricion input{
+    width: 65px;
+    font-size: 4rem;
+    padding-left: 15px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    height: 54px;
+}
+.white{
+    background-color: #fff;
+}

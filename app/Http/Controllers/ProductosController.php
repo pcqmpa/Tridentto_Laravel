@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
+use App\Http\Requests\CreateProductoRequest;
 use App\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductosController extends Controller
 {
@@ -15,7 +17,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
+        $productos=Producto::all();
 
         return view('admin.productos',['productos'=>$productos]);
     }
@@ -28,7 +30,6 @@ class ProductosController extends Controller
     public function create()
     {
         $categorias = Categoria::all();
-
         return view('admin.addproducto',['categorias'=>$categorias]);
     }
 
@@ -38,9 +39,22 @@ class ProductosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateProductoRequest $request)
     {
-        //
+
+
+           $data = $request->all();
+           $data['user_id']=Auth::user()->id;
+           $data['estado']=1;
+           $file = $request->file('file');
+           $nombrefile =$file->getClientOriginalName();
+           $data['imagen']=$nombrefile;
+           \Storage::disk('local')->put($nombrefile,\File::get($file));
+
+           Producto::create($data);
+            return redirect('/productos');
+
+
     }
 
     /**
@@ -49,9 +63,15 @@ class ProductosController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show($id)
     {
-        //
+        $producto = Producto::find($id);
+
+        /*Productos relacionado*/
+        $listado = Producto::where('categoria_id', $producto->categoria_id , 4)->get();
+
+
+        return view('admin.showprodcuto',['producto'=>$producto,'listado' => $listado]);
     }
 
     /**
@@ -62,7 +82,10 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto=Producto::find($id);
+        $categorias = Categoria::where('estado',1)->get();
+
+        return view('admin.editproducto',['producto'=>$producto,'categorias' => $categorias]);
     }
 
     /**
@@ -74,7 +97,17 @@ class ProductosController extends Controller
      */
     public function update(Request $request,$id)
     {
-        //
+        $data = $request->all();
+
+        /*Cargamos la imagen*/
+        $file = $request->file('file');
+        $nombrefile =$file->getClientOriginalName();
+        $data['imagen']=$nombrefile;
+        \Storage::disk('local')->put($nombrefile,\File::get($file));
+        /*Fin Cargar imagen*/
+
+        Producto::create($data);
+        return redirect('/productos');
     }
 
     /**

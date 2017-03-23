@@ -30,6 +30,7 @@
                         ...
                     </div>
                 </div>
+                ...
             </div>
 
             <!-- Controls -->
@@ -57,61 +58,7 @@
         </div>
     </header>
     <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Productos</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <div class="card">
-                        <img class="card-img-top" src="img/Productos/Camiseta1.jpg" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Camiseta Estampada</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn btn-primary">Agregar al carrito</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 portfolio-item">
-                    <div class="card">
-                        <img class="card-img-top" src="img/Productos/Camiseta1.jpg" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Camiseta Estampada</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!--<a href="#" class="btn btn-raised btn-warning"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i> <span style="margin-left: 5px">Agregar al carrito</span></a>-->
-                            <a href="javascript:void(0)" class="btn btn-warning btn-fab"><i class="fa fa-cart-plus" aria-hidden="true" style="margin-top: 13px"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <div class="card">
-                        <img class="card-img-top" src="img/Productos/Camiseta1.jpg" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Camiseta Estampada</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn btn-primary">Agregar al carrito</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <div class="card">
-                        <img class="card-img-top" src="img/Productos/Camiseta1.jpg" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">Camiseta Estampada</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a class="btn btn-primary">Agregar al carrito</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+        @include('main.productoshome',['productos',$productos])
     <!-- About Section -->
     <section class="success" id="about">
         <div class="container">
