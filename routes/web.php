@@ -17,5 +17,6 @@ Route::get('/admin','AdminController@index');
 Auth::routes();
 
 Route::resource('categorias','CategoriasController');
+Route::resource('productos','ProductosController');
 
 Route::get('/home', 'HomeController@index');
