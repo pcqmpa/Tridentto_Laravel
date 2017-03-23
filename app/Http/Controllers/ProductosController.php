@@ -7,6 +7,7 @@ use App\Http\Requests\CreateProductoRequest;
 use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductosController extends Controller
 {
@@ -95,19 +96,33 @@ class ProductosController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(CreateProductoRequest $request,$id)
     {
-        $data = $request->all();
+        $producto=Producto::find($id);
 
+        $data = $request->all();
+        $data['user_id']=Auth::user()->id;
         /*Cargamos la imagen*/
         $file = $request->file('file');
-        $nombrefile =$file->getClientOriginalName();
-        $data['imagen']=$nombrefile;
-        \Storage::disk('local')->put($nombrefile,\File::get($file));
-        /*Fin Cargar imagen*/
+        if($file != null){
+            \Storage::delete($producto->imagen);
 
-        Producto::create($data);
+            $nombrefile =$file->getClientOriginalName();
+            $data['imagen']=$nombrefile;
+            \Storage::disk('local')->put($nombrefile,\File::get($file));
+
+        }else
+        {
+            $data['imagen']=$producto->imagen;
+
+        }
+
+
+        /*Fin Cargar imagen*/
+        Producto::updated($data);
         return redirect('/productos');
+
+
     }
 
     /**

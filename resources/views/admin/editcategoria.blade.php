@@ -3,7 +3,7 @@
 
     <div class="container white">
         <h1>Editar Categoria</h1>
-        {!! Form::open(['url'=> '/categorias/'. $categoria->id,'method' => 'PATCH' ])!!}
+        {!! Form::open(['url'=> '/categorias/'. $categoria->id,'method' => 'PATCH','class' => 'form-personal' ])!!}
 
         <div class="form-group">
             {{ Form::text('descripcion',$categoria->descripcion,['class' => 'form-control','placeholder' => 'Descripcion'])}}
