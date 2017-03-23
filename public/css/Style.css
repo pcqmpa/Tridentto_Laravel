@@ -1,0 +1,56 @@
+header{
+    background-color: #fff;
+}
+.navbar-custom .navbar-nav li.active a, .navbar-custom .navbar-nav li.active a:active, .navbar-custom .navbar-nav li.active a:focus, .navbar-custom .navbar-nav li.active a:hover {
+    color: #fff;
+    background: #ff8100;
+}
+
+.navbar, .navbar.navbar-default {
+    background-color: #2c3e50;
+    color: rgba(255,255,255, 0.84);
+}
+section.success {
+    background: #ff8100;
+    color: #fff;
+}
+
+.card{
+    border: 1px solid #d8d8d8;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px 1px rgba(153, 153, 153, 0.32);
+}
+
+.card .card-img-top{
+
+    max-width: 100%;
+
+
+}
+.card .card-block{
+    padding: 15px;
+}
+.badge{
+    background-color:#ff8100;
+}
+
+.carrito-menu{
+    margin-top: -10px;
+}
+
+div#maincontent{
+
+   /* height: 500px;
+    background-image: url("../img/portada1.png");
+    background-size: cover;*/
+
+}
+.form-app{
+    margin-top: 50px;
+}
+.carousel-indicators {
+    bottom: 35px;
+}
+.navbar-custom .navbar-nav li a {
+    color: #ff8f00;
+}
