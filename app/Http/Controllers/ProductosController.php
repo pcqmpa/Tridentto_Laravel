@@ -98,6 +98,8 @@ class ProductosController extends Controller
      */
     public function update(CreateProductoRequest $request,$id)
     {
+
+
         $producto=Producto::find($id);
 
         $data = $request->all();
@@ -119,7 +121,8 @@ class ProductosController extends Controller
 
 
         /*Fin Cargar imagen*/
-        Producto::updated($data);
+        $producto->fill($data);
+        $producto->save();
         return redirect('/productos');
 
 

@@ -53,11 +53,13 @@
         <div class="form-group">
             <div class="checkbox">
                 <label>
-                    <input name="estado" id="estado" type="checkbox" value="{{$producto->estado}}"> Estado
+                    <input name="estado" id="pestado" type="checkbox" value="{{$producto->estado}}"> Estado
                 </label>
             </div>
             <p class="help-block">Activar o desactivar un producto</p>
         </div>
+
+        <input type="hidden" value="{{$producto->estado}}" name="estado" id="estado">
 
         <div class="form-group text-right regreso-lista">
             <a href="{{url('/productos')}}" class="regreso-lista">Regresar a lalista de Productos</a>
@@ -73,15 +75,15 @@
     <script type="text/javascript">
         $(function(){
 
-            var estado=$('#estado').val();
+            var estado=$('#pestado').val();
 
             if (estado==1){
 
-                $('#estado').prop('checked',true);
+                $('#pestado').prop('checked',true);
             }
 
 
-            $('#estado').change(function(){
+            $('#pestado').change(function(){
 
                 if($(this).is(':checked')){
 

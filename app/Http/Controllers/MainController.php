@@ -15,7 +15,8 @@ class MainController {
 
         public function home(){
 
-            $productos=Producto::all();
+            $productos=Producto::where('estado',1)->get();
+
             return view('main.home',['productos'=> $productos]);
 
         }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,8 @@ class HomeController extends Controller
             return view('admin.menu');
         }else
         {
-            return view('main.home');
+            $prodcutos = Producto::where('estado',1)->get();
+            return view('main.home',['productos'=>$prodcutos]);
         }
 
 
