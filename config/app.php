@@ -168,7 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        App\Providers\ShippingCartProvider::class,
         /*
          * Application Service Providers...
          */

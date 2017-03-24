@@ -87,3 +87,10 @@ div#maincontent{
 .white{
     background-color: #fff;
 }
+
+.encabezado-tabla-carrito{
+
+    font-family: 'UbuntuMono', monospace;
+    font-weight: bold;
+
+}

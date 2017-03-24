@@ -10,13 +10,13 @@ namespace App\Http\Controllers;
 
 
 use App\Producto;
+use App\ShoppingCart;
 
 class MainController {
 
         public function home(){
 
             $productos=Producto::where('estado',1)->get();
-
             return view('main.home',['productos'=> $productos]);
 
         }

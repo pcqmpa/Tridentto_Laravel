@@ -48,7 +48,7 @@
                             <a href="#page-top"></a>
                         </li>
                         <li class="page-scroll carrito-menu" >
-                            <a href="#">Carrito<i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"> <span class="badge">0</span></i></a>
+                            <a href="{{url('/carrito')}}">Carrito<i class="fa fa-cart-arrow-down fa-2x" aria-hidden="true"> <span class="badge">{{$shopping_cart->productsSize()}}</span></i></a>
                         </li>
                         <li class="page-scroll">
                             <a href="#portfolio">Productos</a>

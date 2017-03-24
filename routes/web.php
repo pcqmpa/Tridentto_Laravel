@@ -13,10 +13,17 @@
 
 Route::get('/', 'MainController@home');
 Route::get('/admin','AdminController@index');
+Route::get('/carrito','ShoppingCartsController@index');
 
 Auth::routes();
 
 Route::resource('categorias','CategoriasController');
 Route::resource('productos','ProductosController');
+
+Route::resource('in_shopping_carts','InShoppingCartsController',[
+    'only' => ['store','destroy']
+]);
+
+
 
 Route::get('/home', 'HomeController@index');

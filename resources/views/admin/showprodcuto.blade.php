@@ -25,13 +25,11 @@
                         <li class="detalle-producto-titulo">Precio</li>
                         <li class="detalle-producto-descricion">${{number_format($producto->precio,0,'.',',')}}</li>
                         <li class="detalle-producto-titulo" >Cantidad</li>
-                        <li class="detalle-producto-descricion">
-                            <input type="number" value="1" name="cantidad">
-                        </li>
+
                     </ul>
                 </div>
                 <div class="row">
-                    <a href="#" class="btn btn-raised btn-info">Agregar al Carrito</a><br/>
+                    @include('in_shopping_carts.form',['producto' => $producto])
                     <a href="{{url('/')}}">Regresar a la Pagina</a>
                 </div>
 

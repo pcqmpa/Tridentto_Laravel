@@ -32,6 +32,7 @@ class HomeController extends Controller
         }else
         {
             $prodcutos = Producto::where('estado',1)->get();
+
             return view('main.home',['productos'=>$prodcutos]);
         }
 
