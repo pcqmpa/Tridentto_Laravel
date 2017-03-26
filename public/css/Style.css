@@ -94,3 +94,11 @@ div#maincontent{
     font-weight: bold;
 
 }
+
+.table>tbody>tr>td {
+
+    line-height: 5;
+    font-size:18px;
+    color:#ff5722;
+
+}

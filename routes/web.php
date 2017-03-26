@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::resource('categorias','CategoriasController');
 Route::resource('productos','ProductosController');
+Route::resource('miperfil','PerfilUsuariosController');
 
 Route::resource('in_shopping_carts','InShoppingCartsController',[
     'only' => ['store','destroy']

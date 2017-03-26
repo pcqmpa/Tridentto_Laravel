@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ShoppingCart;
+use Illuminate\Support\Facades\Auth;
+
 class ShoppingCartsController extends Controller
 {
     public function index(){
@@ -17,6 +19,14 @@ class ShoppingCartsController extends Controller
 
         return view('shoping_carts.index',['productos' => $productos,'total' => $total]);
 
+
+    }
+
+    public function pedido(){
+
+        if (Auth::guest()){
+            return view('');
+        }
 
     }
 }

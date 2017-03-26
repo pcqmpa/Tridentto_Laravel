@@ -23,11 +23,11 @@
                         <td>
                             <img src="{{url('img/Productos/'.$item->imagen)}}" width="70" height="70" style="border: 1px solid #000">
                         </td>
-                        <td>{{$item->titulo}}</td>
-                        <td>{{$item->categoria}}</td>
-                        <td>{{$item->cantidad}}</td>
-                        <td>${{number_format($item->precio,0,'.',',')}}</td>
-                        <td>${{$item->precio * $item->cantidad}}</td>
+                        <td class="detalle-carrito-row" >{{$item->titulo}}</td>
+                        <td class="detalle-carrito">{{$item->categoria}}</td>
+                        <td class="detalle-carrito">{{$item->cantidad}}</td>
+                        <td class="detalle-carrito">${{number_format($item->precio,0,'.',',')}}</td>
+                        <td class="detalle-carrito">${{$item->precio * $item->cantidad}}</td>
                         <td>
                             <a href="#" class="text-center btn"><i class="fa fa-times-circle-o fa-2x" aria-hidden="true"></i></a>
                         </td>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a href="#" class="btn btn-raised btn-warning" style="width: 229px;">PAGAR</a><br/>
+                    <a href="#" class="btn btn-raised btn-warning" style="width: 229px;">Realizar Pedido</a><br/>
                     <a href="#" class="btn btn-default">Continue comprando</a>
                 </div>
 

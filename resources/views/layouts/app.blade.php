@@ -85,6 +85,9 @@
                                             <a href="{{url('/admin')}}">
                                                 Administrador
                                             </a>
+                                            <a href="{{url('/miperfil/'.Auth::user()->id.'/edit')}}">
+                                                Mi Perfil
+                                            </a>
                                         </li>
 
                                     @endif
