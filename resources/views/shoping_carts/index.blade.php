@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a href="#" class="btn btn-raised btn-warning" style="width: 229px;">Realizar Pedido</a><br/>
+                    <a href="{{url('/direccion')}}" class="btn btn-raised btn-warning" style="width: 229px;">Realizar Pedido</a><br/>
                     <a href="#" class="btn btn-default">Continue comprando</a>
                 </div>
 

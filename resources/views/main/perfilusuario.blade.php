@@ -8,11 +8,12 @@
         <div class="panel panel-default">
             <div class="panel-heading">Mi Perfil</div>
             <div class="panel-body">
+
                 {!! Form::open(['url'=>'/miperfil','method' => 'POST']) !!}
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
-                                {{Form::text('first_name',Auth::user()->name,['class' => 'form-control','placeholder' => 'Nombre'] )}}
+                                {{Form::text('first_name','',['class' => 'form-control','placeholder' => 'Nombre'] )}}
                             </div>
                             <div class="form-group">
                                 {{Form::text('last_name','',['class' => 'form-control','placeholder' => 'Apellido'] )}}
@@ -37,17 +38,28 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <select name="state" class="form-control">
+                            <select name="departamento_id" id="state" class="form-control">
                                 <option value="0" disabled selected>Seleccione Un Departamento..</option>
                                 @foreach($departamentos as $item)
-                                    <option value="{{$item->nombre}}">{{$item->nombre}}</option>
+                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <select name="state" class="form-control">
+                            <input type="hidden" id="id-ciudad" value="">
+                            <select name="municipio_id" id="city" class="form-control">
                                 <option value="0" disabled selected>Seleccione Una Ciudad..</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea name="commentary" class="form-control" placeholder="Comentarios">
+                                </textarea>
+                            </div>
+
                         </div>
                     </div>
 
@@ -68,4 +80,41 @@
         </div>
     </section>
 
+@endsection
+@section('js')
+    <script type="text/javascript">
+        $(function(){
+
+
+            $('#state').change(function(){
+
+                var xid = $('#state').val();
+
+                ciudades(xid);
+            });
+
+
+
+        });
+
+        function ciudades(id){
+
+            $.ajax({
+                url:'ciudades/' + id
+            }).done(function(res){
+
+                $('#city option').remove();
+
+                 var idCiudad = $('#id-ciudad').val();
+
+                var lista = res;
+                for(var i = 0; i < lista.length; i++){
+
+                    var  xoption='<option value="'+ lista[i].id +'">'+ lista[i].nombre_municipio +'</option>';
+                    $('#city').append(xoption);
+
+                }
+            });
+        }
+    </script>
 @endsection

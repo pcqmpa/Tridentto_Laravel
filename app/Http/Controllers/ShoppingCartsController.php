@@ -29,4 +29,10 @@ class ShoppingCartsController extends Controller
         }
 
     }
+
+    public function direccion(){
+
+        return view('shoping_carts.confirmardireccion');
+
+    }
 }

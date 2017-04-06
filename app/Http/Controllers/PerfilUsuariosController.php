@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Departamento;
+use App\PerfilUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,19 +16,22 @@ class PerfilUsuariosController extends Controller
      */
     public function index()
     {
+        /*Validamos si tenemos datos para cargar*/
 
+        $departamentos = Departamento::all();
+
+        $user_id=Auth::user()->id;
+
+        $datos = PerfilUsuario::where('user_id','=',$user_id)->get();
+
+        if($datos->count() > 0){
+            return view('main.editperfilusuario',['departamentos' => $departamentos,'datos' => $datos]);
+        }else{
+            return view('main.perfilusuario',['departamentos' => $departamentos]);
+        }
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,32 +41,15 @@ class PerfilUsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        $data['user_id']=Auth::user()->id;
+        $data['country']='COLOMBIA';
+        PerfilUsuario::create($data);
+        return redirect('/');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $departamentos= Departamento::all();
-
-        return view('main.perfilusuario',['departamentos'=>$departamentos]);
-    }
 
     /**
      * Update the specified resource in storage.
@@ -73,17 +60,14 @@ class PerfilUsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $miperfil = PerfilUsuario::find($id);
+
+        $data=$request->all();
+
+        $miperfil->fill($data);
+        $miperfil->save();
+
+        return redirect('/');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

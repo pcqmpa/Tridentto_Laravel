@@ -13,7 +13,7 @@ class AlterPerfilUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::table('perfil_usuario', function (Blueprint $table) {
+        Schema::table('perfil_usuarios', function (Blueprint $table) {
             $table->string('commentary');
         });
     }
@@ -25,7 +25,7 @@ class AlterPerfilUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::table('perfil_usuario', function (Blueprint $table) {
+        Schema::table('perfil_usuarios', function (Blueprint $table) {
             $table->dropColumn('commentary');
         });
     }

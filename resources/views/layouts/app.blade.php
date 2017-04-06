@@ -80,14 +80,18 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="{{url('/miperfil')}}">
+                                            Mi Perfil
+                                        </a>
+                                    </li>
+
                                     @if(Auth::user()->perfil_id == 1)
                                         <li>
                                             <a href="{{url('/admin')}}">
                                                 Administrador
                                             </a>
-                                            <a href="{{url('/miperfil/'.Auth::user()->id.'/edit')}}">
-                                                Mi Perfil
-                                            </a>
+
                                         </li>
 
                                     @endif

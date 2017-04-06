@@ -13,7 +13,7 @@ class CreatePerfilUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('perfil_usuario', function (Blueprint $table) {
+        Schema::create('perfil_usuarios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
@@ -23,8 +23,10 @@ class CreatePerfilUsuarioTable extends Migration
             $table->string('mobil_number')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();
-            $table->string('state')->nullable();
-            $table->string('city')->nullable();
+            $table->integer('departamento_id')->unsigned();
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
+            $table->integer('municipio_id')->unsigned();
+            $table->foreign('municipio_id')->references('id')->on('municipios');
             $table->timestamps();
         });
     }
@@ -36,6 +38,6 @@ class CreatePerfilUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perfil_usuario');
+        Schema::dropIfExists('perfil_usuarios');
     }
 }
