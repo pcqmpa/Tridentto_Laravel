@@ -17,6 +17,7 @@ Route::get('/', 'MainController@home');
 Route::get('/admin','AdminController@index');
 Route::get('/carrito','ShoppingCartsController@index');
 Route::get('/direccion','ShoppingCartsController@direccion');
+Route::get('/pagar','ShoppingCartsController@pagarpedido');
 Route::get('/ciudades/{id}',function($id){
 
     $ciudades = Municipio::where('departamento_id','=',$id )->get();
