@@ -47,11 +47,20 @@ class ShoppingCartsController extends Controller
 
         $productos = $shopping_cart->productos();
 
+        $referencia = $shopping_cart_id.'-'.'testPayu';
+
         $total=$shopping_cart->total();
-        $key = md5('LYrZ3ETFroQi2bLC4r3B5RveQy'.'~'.'574600'.'~'.$shopping_cart_id.'~'.$total.'~'.'COP');
+        $key = md5('4Vj8eK4rloUd272L48hsrarnUA'.'~'.'508029'.'~'.$referencia.'~'.$total.'~'.'COP');
+
+        $user_id = Auth::user()->id;
 
 
-        return view('shoping_carts.formpedido',['referencia'=>$shopping_cart_id,'productos' => $productos,'total' => $total,'keypayu'=>$key]);
+
+        $datos_cliente=PerfilUsuario::Where('user_id','=',$user_id)->get();
+
+        /*dd($datos_cliente->municipio->nombre_municipio);*/
+
+        return view('shoping_carts.formpedido',['referencia'=>$referencia,'productos' => $productos,'total' => $total,'keypayu'=>$key,'datos' => $datos_cliente]);
 
     }
 }

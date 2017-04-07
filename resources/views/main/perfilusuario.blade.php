@@ -10,6 +10,15 @@
             <div class="panel-body">
 
                 {!! Form::open(['url'=>'/miperfil','method' => 'POST']) !!}
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group" >
+                                {{Form::text('identification','',['class' => 'form-control','placeholder' => 'Identificación'])}}
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">

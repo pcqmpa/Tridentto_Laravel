@@ -69,19 +69,21 @@
                     </a>
 
                     <form id="pagar-form" action="https://sandbox.gateway.payulatam.com/ppp-web-gateway/" method="POST" style="display: none;">
-                        <input name="merchantId"      type="hidden"  value="574600">
-                        <input name="accountId"       type="hidden"  value="577380" >
-                        <input name="description"     type="hidden"  value="Compra Tienda Tridentto"  >
+                        <input name="merchantId"      type="hidden"  value="508029">
+                        <input name="accountId"       type="hidden"  value="512321" >
+                        <input name="description"     type="hidden"  value="TestPayU"  >
                         <input name="referenceCode"   type="hidden"  value="{{$referencia}}" >
-                        <input name="amount"          type="hidden"  value="{{$total}}"   >
+                        <input name="amount"          type="hidden"  value="{{$total}}">
                         <input name="tax"             type="hidden"  value="0"  >
                         <input name="taxReturnBase"   type="hidden"  value="{{$total}}" >
                         <input name="currency"        type="hidden"  value="COP" >
                         <input name="signature"       type="hidden"  value="{{$keypayu}}">
-                        <input name="shippingAddress" type="hidden" value="Cra 43 No 48c Sur 51">
+                        <input name="shippingAddress" type="hidden" value="{{$datos[0]->address}}">
+                        <input name="buyerFullName" type="hidden" value="{{$datos[0]->first_name.' '.$datos[0]->last_name}}">
                         <input name="shippingCity" type="hidden" value="Medellin">
                         <input name="shippingCountry" type="hidden" value="CO">
-                        <input name="buyerEmail"      type="hidden"  value="matcomputo@hotmail.com" >
+                        <input name="test" type="hidden" value="1">
+                        <input name="buyerEmail"      type="hidden"  value="{{Auth::user()->user}}" >
                         <input name="responseUrl"     type="hidden"  value="http://www.tridentto.com" >
                         <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" >
                         <input name="Submit"        type="submit"  value="Enviar" >

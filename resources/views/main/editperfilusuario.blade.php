@@ -10,6 +10,15 @@
                         <div class="panel-body">
 
                             {!! Form::open(['url'=>'/miperfil/'.$datos[0]->id,'method' => 'PATCH']) !!}
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group" >
+                                        {{Form::text('identification',$datos[0]->identification,['class' => 'form-control','placeholder' => 'Identificación','readonly'])}}
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
