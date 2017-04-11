@@ -96,6 +96,9 @@
                 <li>
                     <a href="#">Ordenes</a>
                 </li>
+                <li>
+                    <a href="{{url('/terceros')}}">Terceros</a>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
