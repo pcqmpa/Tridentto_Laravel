@@ -35,7 +35,7 @@
                             <td>{{$item->celular}}</td>
                             <td>{{$item->email}}</td>
                             <td>
-                                <a href="#">Editar</a>
+                                <a href="{{url('/terceros/'.$item->id.'/edit')}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
                             </td>
                         </tr>
 
@@ -43,6 +43,7 @@
 
                 </tbody>
             </table>
+            {!! $terceros->render() !!}
         </div>
         <div class="row" >
             <a href="{{url('/terceros/create')}}" class="btn btn-raised btn-info" >Agregar</a>

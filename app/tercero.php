@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class tercero extends Model
 {
     protected $fillable= ['identificacion','empresa','nombre','apellido','telefono',
-        'celular','direccion','departamento_id','municipio_id','email','tipo_documento_id'
+        'celular','direccion','departamento_id','municipio_id','email','tipo_ducumento_id'
     ];
 
 

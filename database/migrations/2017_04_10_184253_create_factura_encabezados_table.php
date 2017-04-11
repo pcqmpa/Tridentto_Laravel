@@ -13,7 +13,21 @@ class CreateFacturaEncabezadosTable extends Migration
      */
     public function up()
     {
+        Schema::create('factura_encabezados', function (Blueprint $table) {
 
+            $table->increments('id');
+            $table->integer('num_factura')->unique();
+            $table->date('dtm_fecha_creacion');
+            $table->date('dtm_fecha_vencimiento');
+            $table->integer('tercero_id')->unsigned();
+            $table->foreign('tercero_id')->references('id')->on('terceros');
+            $table->double('cur_bruto',18,2);
+            $table->double('cur_iva',18,2);
+            $table->boolean('log_estado')->default(true);
+            $table->text('observacion');
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -23,6 +37,6 @@ class CreateFacturaEncabezadosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('factura_encabezados');
     }
 }

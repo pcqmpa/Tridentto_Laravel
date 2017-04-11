@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Departamento;
-use App\Http\Requests\CreateTerceroRequest;
-use App\tercero;
 use Illuminate\Http\Request;
 
-class TercerosController extends Controller
+class FacturasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class TercerosController extends Controller
      */
     public function index()
     {
-        $terceros = tercero::paginate(15);
-        return view('admin.terceros',['terceros' => $terceros]);
+        return view('admin.facturacion.factura');
     }
 
     /**
@@ -27,8 +23,7 @@ class TercerosController extends Controller
      */
     public function create()
     {
-        $departamentos = Departamento::all();
-        return view('admin.addtercero',['departamentos' => $departamentos]);
+        //
     }
 
     /**
@@ -37,14 +32,9 @@ class TercerosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateTerceroRequest $request)
+    public function store(Request $request)
     {
-
-        $data = $request->all();
-
-        tercero::create($data);
-
-        return redirect('/terceros');
+        //
     }
 
     /**
@@ -55,7 +45,7 @@ class TercerosController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -66,10 +56,7 @@ class TercerosController extends Controller
      */
     public function edit($id)
     {
-        $tercero=tercero::find($id);
-        $departamentos = Departamento::all();
-
-        return view('admin.edittercero',['departamentos'=>$departamentos,'tercero' => $tercero]);
+        //
     }
 
     /**
@@ -81,15 +68,7 @@ class TercerosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tercero = tercero::find($id);
-
-        $data= $request->all();
-
-        $tercero->fill($data);
-
-        $tercero->save();
-
-        return redirect('/terceros');
+        //
     }
 
     /**

@@ -99,6 +99,9 @@
                 <li>
                     <a href="{{url('/terceros')}}">Terceros</a>
                 </li>
+                <li>
+                    <a href="{{url('/facturacion')}}">Facturacion</a>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
