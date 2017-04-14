@@ -49,7 +49,10 @@
                 <div class="form-group col-md-2 col-sm-12">
                     <input type="text" placeholder="Codigo" class="form-control">
                 </div>
-                <div class="form-group col-md-3 col-sm-12">
+                <div class="form-group col-md-1 col-sm-12">
+                    <a href="#"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <div class="form-group col-md-2 col-sm-12">
                     <input type="text" placeholder="Descripción" class="form-control" readonly>
                 </div>
                 <div class="form-group col-md-1 col-sm-12">
@@ -103,7 +106,46 @@
 
             </div>
             <div class="row">
-
+                <div class="col-md-12">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="textArea" class="col-md-2 control-label">Observacion</label>
+                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12" >
+                      <ul class="ul-totales-uno">
+                          <li class="col-md-6">Subtotal</li>
+                          <li class="col-md-6">$250.000</li>
+                      </ul>
+                      <ul class="ul-totales-dos">
+                            <li class="col-md-6">Flete</li>
+                            <li class="col-md-6">$9.500</li>
+                       </ul>
+                        <ul class="ul-totales-dos">
+                            <li class="col-md-6">Descuento</li>
+                            <li class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" value="$0" class="form-control text-right">
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ul-totales-dos">
+                            <li class="col-md-6">Impuestos <span>19%</span></li>
+                            <li class="col-md-6">$16.000</li>
+                        </ul>
+                        <ul class="ul-totales-uno">
+                            <li class="col-md-6">Total</li>
+                            <li class="col-md-6">$266.000</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-raised btn-danger">Guardar</button>
+                </div>
             </div>
         </div>
 

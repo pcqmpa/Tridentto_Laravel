@@ -102,6 +102,9 @@
                 <li>
                     <a href="{{url('/facturacion')}}">Facturacion</a>
                 </li>
+                <li>
+                    <a href="{{url('/consecutivos')}}">Consecutivos</a>
+                </li>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

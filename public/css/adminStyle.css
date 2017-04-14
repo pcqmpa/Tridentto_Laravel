@@ -24,3 +24,35 @@ div.white{
 
     margin: 25px;
 }
+.ul-totales-uno{
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    line-height: 2;
+    background-color: #e0e0e0;
+    font-size: 2rem;
+    color: #000000;
+    list-style-type: none;
+    font-family: 'UbuntuMono', monospace;
+}
+
+.ul-totales-uno li {
+
+    text-align: right;
+}
+
+.ul-totales-dos{
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    line-height: 2;
+    background-color: rgba(255, 255, 255, 0.100);
+    font-size: 2rem;
+    color: #000000;
+    list-style-type: none;
+    font-family: 'UbuntuMono', monospace;
+}
+
+.ul-totales-dos li {
+    text-align: right;
+}

@@ -31,6 +31,7 @@ Route::resource('categorias','CategoriasController');
 Route::resource('productos','ProductosController');
 Route::resource('terceros','TercerosController');
 Route::resource('facturacion','FacturasController');
+Route::resource('consecutivos','ConsecutivosController');
 Route::resource('miperfil','PerfilUsuariosController',[
     'only' =>['index','store','update']
 ]);
