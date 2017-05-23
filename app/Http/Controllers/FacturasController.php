@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\factura_encabezado;
+use App\tercero;
+use App\consecutivo;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class FacturasController extends Controller
 {
@@ -34,7 +38,37 @@ class FacturasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        /*Consultamos el consecutivo*/
+
+        $consecutivo=consecutivo::where('tipodcto','=','FAC')->get();
+
+        $consecut= intval($consecutivo[0]->consecutivo)  + 1 ;
+
+        $documento=$request->documento;
+
+
+        $terecero= tercero::where('identificacion','=',$documento)->get();
+
+        $_encabezado= new factura_encabezado();
+
+
+        $_encabezado->num_factura=intval($consecut);
+        $_encabezado->dtm_fecha_creacion=$request->fecha;
+        $_encabezado->dtm_fecha_vencimineto=$request->fecha_ven;
+        $_encabezado->tercero_is=intval($terecero->id);
+        $_encabezado->cur_bruto=$request->subtotal;
+        $_encabezado->cur_iva=$request->impuesto;
+        $_encabezado->observacion=$request->observacion;
+
+        return $_encabezado;
+
+        /*if($_encabezado->save()){
+            return $_encabezado->id;
+        }else{
+            return "Error";
+        }*/
+
     }
 
     /**
@@ -45,7 +79,10 @@ class FacturasController extends Controller
      */
     public function show($id)
     {
-        //
+
+
+
+
     }
 
     /**
@@ -68,7 +105,7 @@ class FacturasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -81,4 +118,8 @@ class FacturasController extends Controller
     {
         //
     }
+
+
+
+
 }

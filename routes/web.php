@@ -25,12 +25,41 @@ Route::get('/ciudades/{id}',function($id){
     return $ciudades;
 
 });
+
+Route::get('tercero/{identificacion}',function ($identificacion){
+
+    $tercero=\App\tercero::where('identificacion','=',$identificacion)->get();
+    return $tercero;
+
+});
+
+Route::get('consecut/{tipodcto}',function($tipodcto){
+
+    $consecutivo=\App\consecutivo::where('tipodcto','=',$tipodcto)->get();
+
+    $cunsecut= intval($consecutivo[0]->consecutivo)  + 1 ;
+
+    return str_pad($cunsecut,5,"0",STR_PAD_LEFT);
+
+});
+
+Route::get('producto/{codigo}',function($codigo){
+
+    $codigo=\App\Producto::where('referencia','=',$codigo)->get();
+
+    return $codigo;
+
+});
+
 Auth::routes();
 
 Route::resource('categorias','CategoriasController');
 Route::resource('productos','ProductosController');
 Route::resource('terceros','TercerosController');
-Route::resource('facturacion','FacturasController');
+Route::resource('facturacion','FacturasController',[
+    'only' => ['index','store']
+]);
+Route::post('addfactura','FacturasController@addFac');
 Route::resource('consecutivos','ConsecutivosController');
 Route::resource('miperfil','PerfilUsuariosController',[
     'only' =>['index','store','update']

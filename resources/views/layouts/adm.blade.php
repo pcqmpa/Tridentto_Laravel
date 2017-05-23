@@ -14,6 +14,11 @@
     <link href="{{asset('css/adminStyle.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
 <body>
 
@@ -139,6 +144,36 @@
     $.material.init();
 
     $("#wrapper").toggleClass("toggled");
+
+    function Formato_Moneda(valor) {
+        return "$" + formato_numero(valor, 0, ',', '.');
+
+    }
+
+    function formato_numero(numero, decimales, separador_decimal, separador_miles) { // v2007-08-06
+        numero = parseFloat(numero);
+        if (isNaN(numero)) {
+            return "";
+        }
+
+        if (decimales !== undefined) {
+            // Redondeamos
+            numero = numero.toFixed(decimales);
+        }
+
+        // Convertimos el punto en separador_decimal
+        numero = numero.toString().replace(".", separador_decimal !== undefined ? separador_decimal : ",");
+
+        if (separador_miles) {
+            // Añadimos los separadores de miles
+            var miles = new RegExp("(-?[0-9]+)([0-9]{3})");
+            while (miles.test(numero)) {
+                numero = numero.replace(miles, "$1" + separador_miles + "$2");
+            }
+        }
+
+        return numero;
+    }
 
 </script>
 @yield('js')
